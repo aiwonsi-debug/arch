@@ -138,7 +138,7 @@ sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 echo "    sudo: OK"
 
 # systemd-boot
-bootctl install
+bootctl install --force 2>/dev/null || bootctl update
 
 cat > /boot/loader/entries/arch.conf <<BOOT_EOF
 title   Arch Linux
